@@ -15,23 +15,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Domain", "4-Domain", "{F9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5-Infra", "5-Infra", "{5CCBEE8C-6994-42B7-A5E2-777F2DEB30CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNA.UI.Web", "src\DNA.UI.Web\DNA.UI.Web.csproj", "{A64F5A71-B630-46B3-8727-76D96F29C007}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DNA.UI.Web", "src\DNA.UI.Web\DNA.UI.Web.csproj", "{A64F5A71-B630-46B3-8727-76D96F29C007}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNA.Service.Api", "src\DNA.Service.Api\DNA.Service.Api.csproj", "{82156390-F668-493F-8D27-61BD1086ED9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DNA.Service.Api", "src\DNA.Service.Api\DNA.Service.Api.csproj", "{82156390-F668-493F-8D27-61BD1086ED9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNA.Application", "src\DNA.Application\DNA.Application.csproj", "{6D61549C-6DD3-4815-BA3B-AE6D03182F2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DNA.Application", "src\DNA.Application\DNA.Application.csproj", "{6D61549C-6DD3-4815-BA3B-AE6D03182F2F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1-Domain", "4.1-Domain", "{924FCC47-417E-4427-8DC3-6EEFAFF3ECDE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2-Domain.Core", "4.2-Domain.Core", "{9A1971F6-2C98-4036-AF29-948DB067C6E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNA.Domain.Core", "src\DNA.Domain.core\DNA.Domain.Core.csproj", "{F712EBC8-E142-404B-842C-66B7709551B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DNA.Domain.Core", "src\DNA.Domain.core\DNA.Domain.Core.csproj", "{F712EBC8-E142-404B-842C-66B7709551B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNA.Domain", "src\DNA.Domain\DNA.Domain.csproj", "{D4E14084-1FC2-477E-B0FC-9F376E9A0915}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DNA.Domain", "src\DNA.Domain\DNA.Domain.csproj", "{D4E14084-1FC2-477E-B0FC-9F376E9A0915}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.1-Data", "5.1-Data", "{01944100-E91E-472D-9F17-0BD3E2570DC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNA.Infra.Data", "src\DNA.Infra.Data\DNA.Infra.Data.csproj", "{3A5D33A3-2CFD-40AF-B4E1-4150CE839915}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DNA.Infra.Data", "src\DNA.Infra.Data\DNA.Infra.Data.csproj", "{3A5D33A3-2CFD-40AF-B4E1-4150CE839915}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.2-CrossCutting", "5.2-CrossCutting", "{B53E09EE-721A-464C-9F46-D1C73B2169C0}"
 EndProject
@@ -41,16 +41,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.2.2-CrossCutting.Identity
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.2.3-CrossCutting.IoC", "5.2.3-CrossCutting.IoC", "{F6E50C35-169F-4DB2-935B-DF057D5987D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNA.CrossCutting.Identity", "src\DNA.Infra.CrossCutting.Identity\DNA.CrossCutting.Identity.csproj", "{742DEF02-7C7B-41BB-A59D-705D99EDD5C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DNA.CrossCutting.Identity", "src\DNA.Infra.CrossCutting.Identity\DNA.CrossCutting.Identity.csproj", "{742DEF02-7C7B-41BB-A59D-705D99EDD5C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNA.CrossCutting.Bus", "src\DNA.CrossCutting.Bus\DNA.CrossCutting.Bus.csproj", "{36043FAC-1AA3-45E9-8BB3-D68F6AD560B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DNA.CrossCutting.Bus", "src\DNA.CrossCutting.Bus\DNA.CrossCutting.Bus.csproj", "{36043FAC-1AA3-45E9-8BB3-D68F6AD560B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNA.CrossCutting.IoC", "src\DNA.CrossCutting.IoC\DNA.CrossCutting.IoC.csproj", "{36A5E495-8583-4FFA-A995-AD7EDD45DE4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DNA.CrossCutting.IoC", "src\DNA.CrossCutting.IoC\DNA.CrossCutting.IoC.csproj", "{36A5E495-8583-4FFA-A995-AD7EDD45DE4D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AE88BF9A-69CA-441C-B21D-FB213454C642}"
 	ProjectSection(SolutionItems) = preProject
 		Global.json = Global.json
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{94F24512-9C1E-48A0-9F1A-EBCBCC7B28E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -94,6 +96,10 @@ Global
 		{36A5E495-8583-4FFA-A995-AD7EDD45DE4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36A5E495-8583-4FFA-A995-AD7EDD45DE4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36A5E495-8583-4FFA-A995-AD7EDD45DE4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94F24512-9C1E-48A0-9F1A-EBCBCC7B28E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94F24512-9C1E-48A0-9F1A-EBCBCC7B28E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94F24512-9C1E-48A0-9F1A-EBCBCC7B28E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94F24512-9C1E-48A0-9F1A-EBCBCC7B28E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -120,6 +126,7 @@ Global
 		{742DEF02-7C7B-41BB-A59D-705D99EDD5C7} = {3CAA04B0-CD28-4D22-83D7-D92FDE882AE7}
 		{36043FAC-1AA3-45E9-8BB3-D68F6AD560B5} = {09CD2D8B-EECF-457F-ACEC-0AA7CF94F00A}
 		{36A5E495-8583-4FFA-A995-AD7EDD45DE4D} = {F6E50C35-169F-4DB2-935B-DF057D5987D9}
+		{94F24512-9C1E-48A0-9F1A-EBCBCC7B28E9} = {0F3B6B46-1002-42FA-BD4C-ABAF80238660}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7C63CC1F-0AFB-4E47-AF33-D12FC20E6581}

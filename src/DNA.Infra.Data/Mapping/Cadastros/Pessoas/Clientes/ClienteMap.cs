@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace DNA.Infra.Data.Mapping
+namespace DNA.Infra.Data.Mapping.Cadastros.Pessoas.Clientes
 {
     public class ClienteMap : IEntityTypeConfiguration<Cliente>
     {

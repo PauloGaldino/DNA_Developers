@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DNA.CrossCutting.Bus\DNA.CrossCutting.Bus.csproj" />
     <ProjectReference Include="..\DNA.Domain.core\DNA.Domain.Core.csproj" />
   </ItemGroup>
 

@@ -1,5 +1,5 @@
 ﻿using DNA.Domain.Models.Cadastros.Pessoas;
-using DNA.Infra.Data.Mapping;
+using DNA.Infra.Data.Mapping.Cadastros.Pessoas.Clientes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
