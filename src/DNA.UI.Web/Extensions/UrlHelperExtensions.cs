@@ -1,4 +1,4 @@
-﻿using DNA.UI.Web.Controllers;
+using DNA.UI.Web.Controllers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DNA.UI.Web.Extensions

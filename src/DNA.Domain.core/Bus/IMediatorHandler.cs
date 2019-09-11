@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 
 namespace DNA.Domain.Core.Bus
 {
+    /// <summary>
+    /// Classe responsável por processar os COmmands e os Events.
+    /// </summary>
     public interface IMediatorHandler
     {
         Task SendCommand<T>(T command) where T : Command;

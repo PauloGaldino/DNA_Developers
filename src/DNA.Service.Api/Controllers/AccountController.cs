@@ -12,7 +12,8 @@ using System.Threading.Tasks;
 
 namespace DNA.Service.Api.Controllers
 {
-   [Authorize]
+  
+    [Authorize]
     public class AccountController : ApiController
     {
         private readonly UserManager<ApplicationUser> _userManager;

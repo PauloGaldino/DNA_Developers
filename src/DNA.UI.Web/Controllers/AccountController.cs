@@ -1,4 +1,7 @@
-﻿using DNA.CrossCutting.Identity.Extensions;
+﻿using System;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using DNA.CrossCutting.Identity.Extensions;
 using DNA.CrossCutting.Identity.Models;
 using DNA.CrossCutting.Identity.Models.AccountViewModels;
 using DNA.CrossCutting.Identity.Services;
@@ -8,9 +11,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Security.Claims;
-using System.Threading.Tasks;
 
 namespace DNA.UI.Web.Controllers
 {
@@ -229,7 +229,7 @@ namespace DNA.UI.Web.Controllers
                 if (result.Succeeded)
                 {
                     // User claim for write customers data
-                    await _userManager.AddClaimAsync(user, new Claim("Custumers", "Write"));
+                    await _userManager.AddClaimAsync(user, new Claim("Customers", "Write"));
 
                     _logger.LogInformation("User created a new account with password.");
 
@@ -328,7 +328,7 @@ namespace DNA.UI.Web.Controllers
                     if (result.Succeeded)
                     {
                         // User claim for write customers data
-                        await _userManager.AddClaimAsync(user, new Claim("Custumers", "Write"));
+                        await _userManager.AddClaimAsync(user, new Claim("Customers", "Write"));
 
                         await _signInManager.SignInAsync(user, isPersistent: false);
                         _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);

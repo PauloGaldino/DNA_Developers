@@ -1,7 +1,7 @@
-﻿using DNA.Domain.Core.Notifications;
+﻿using System.Threading.Tasks;
+using DNA.Domain.Core.Notifications;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace DNA.UI.Web.ViewComponents
 {

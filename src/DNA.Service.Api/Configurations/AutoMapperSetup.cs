@@ -13,8 +13,8 @@ namespace DNA.Service.Api.Configurations
 
             services.AddAutoMapper();
 
-            // Registering Mappings automatically only works if the 
-            // Automapper Profile classes are in ASP.NET project
+            // Registrar mapeamentos automaticamente funciona apenas se 
+            // as classes Automapper Profile estão no projeto ASP.NET
             AutoMapperConfig.RegisterMappings();
         }
     }

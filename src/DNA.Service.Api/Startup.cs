@@ -35,8 +35,7 @@ namespace DNA.Service.Api
             Configuration = builder.Build();
         }
 
-
-        // This method gets called by the runtime. Use this method to add services to the container.
+        // Este método é chamado pelo tempo de execução. Use este método para adicionar serviços ao contêiner.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -72,14 +71,14 @@ namespace DNA.Service.Api
                 });
             });
 
-            // Adding MediatR for Domain Events and Notifications
+            // Adicionando o MediatR para eventos e notificações do domínio
             services.AddMediatR(typeof(Startup));
 
-            // .NET Native DI Abstraction
+            // Abstração DI nativa do .NET
             RegisterServices(services);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // Este método é chamado pelo tempo de execução. Use este método para configurar o pipeline de solicitação HTTP.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -88,7 +87,7 @@ namespace DNA.Service.Api
             }
             else
             {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                // O valor padrão do HSTS é de 30 dias. Convém alterar isso para cenários de produção, consultehttps://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -112,7 +111,7 @@ namespace DNA.Service.Api
 
         private static void RegisterServices(IServiceCollection services)
         {
-            // Adding dependencies from another layers (isolated from Presentation)
+            // Adicionando dependências de outras camadas (isoladas da apresentação)
             NativeInjectorBootStrapper.RegisterServices(services);
         }
     }

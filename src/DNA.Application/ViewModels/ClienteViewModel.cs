@@ -23,7 +23,7 @@ namespace DNA.Application.ViewModels
         [Required(ErrorMessage = "The BirthDate is Required")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         [DataType(DataType.Date, ErrorMessage = "Data em formato inválido")]
-        [DisplayName("Data Nascimento")]
+        [DisplayName("Data de Nascimento")]
         public DateTime DataNascimento { get; set; }
     }
 }

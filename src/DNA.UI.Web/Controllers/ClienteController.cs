@@ -1,18 +1,19 @@
-﻿using DNA.Application.Interfaces;
+using System;
+using DNA.Application.Interfaces;
 using DNA.Application.ViewModels;
 using DNA.Domain.Core.Notifications;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace DNA.UI.Web.Controllers
 {
+    [Authorize]
     public class ClienteController : BaseController
     {
         private readonly IClienteAppService _clienteAppService;
 
-        public ClienteController(IClienteAppService clienteAppService,
+        public ClienteController(IClienteAppService clienteAppService, 
                                   INotificationHandler<DomainNotification> notifications) : base(notifications)
         {
             _clienteAppService = clienteAppService;
@@ -64,14 +65,14 @@ namespace DNA.UI.Web.Controllers
             _clienteAppService.Register(clienteViewModel);
 
             if (IsValidOperation())
-                ViewBag.Sucesso = "Customer Registered!";
+                ViewBag.Sucesso = "CLiente Registrado com sucesso!";
 
             return View(clienteViewModel);
         }
-
+        
         [HttpGet]
         [Authorize(Policy = "CanWriteClienteData")]
-        [Route("cliente-management/edit-cliente/{id:guid}")]
+        [Route("customer-management/edit-customer/{id:guid}")]
         public IActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -100,7 +101,7 @@ namespace DNA.UI.Web.Controllers
             _clienteAppService.Update(clienteViewModel);
 
             if (IsValidOperation())
-                ViewBag.Sucesso = "Customer Updated!";
+                ViewBag.Sucesso = "Cliente autalizado com sucesso!";
 
             return View(clienteViewModel);
         }
@@ -135,7 +136,7 @@ namespace DNA.UI.Web.Controllers
 
             if (!IsValidOperation()) return View(_clienteAppService.GetById(id));
 
-            ViewBag.Sucesso = "Customer Removed!";
+            ViewBag.Sucesso = "Cliente removido cm sucesso!";
             return RedirectToAction("Index");
         }
 

@@ -4,8 +4,11 @@ using FluentValidation.Results;
 
 namespace DNA.Domain.Core.Commands
 {
-     public abstract class Command : Message
+    public abstract class Command : Message
     {
+        /// <summary>
+        /// Classe responsável por alteerar os estados das entidades
+        /// </summary>
         public DateTime Timestamp { get; private set; }
         public ValidationResult ValidationResult { get; set; }
 

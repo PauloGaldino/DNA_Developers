@@ -19,10 +19,7 @@ namespace DNA.Application.Services
         private readonly IEventStoreRepository _eventStoreRepository;
         private readonly IMediatorHandler Bus;
 
-        public ClienteAppService(IMapper mapper,
-                                  IClienteRepository clienteRepository,
-                                  IMediatorHandler bus,
-                                  IEventStoreRepository eventStoreRepository)
+        public ClienteAppService(IMapper mapper, IClienteRepository clienteRepository, IMediatorHandler bus,IEventStoreRepository eventStoreRepository)
         {
             _mapper = mapper;
             _clienteRepository = clienteRepository;

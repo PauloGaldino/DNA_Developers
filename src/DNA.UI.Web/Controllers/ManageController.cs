@@ -1,6 +1,11 @@
-﻿using DNA.CrossCutting.Identity.Extensions;
+﻿using System;
+using System.Linq;
+using System.Text;
+using System.Text.Encodings.Web;
+using System.Threading.Tasks;
+using DNA.CrossCutting.Identity.Extensions;
 using DNA.CrossCutting.Identity.Models;
-using DNA.CrossCutting.Identity.Models.ManegeViewModels;
+using DNA.CrossCutting.Identity.Models.ManageViewModels;
 using DNA.CrossCutting.Identity.Services;
 using DNA.UI.Web.Extensions;
 using Microsoft.AspNetCore.Authentication;
@@ -8,11 +13,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Linq;
-using System.Text;
-using System.Text.Encodings.Web;
-using System.Threading.Tasks;
 
 namespace DNA.UI.Web.Controllers
 {
@@ -51,7 +51,7 @@ namespace DNA.UI.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Não foi possível carregar o usuário com o ID '{_userManager.GetUserId(User)}'.");
             }
 
             var model = new IndexViewModel
@@ -79,7 +79,7 @@ namespace DNA.UI.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Não foi possível carregar o usuário com o ID '{_userManager.GetUserId(User)}'.");
             }
 
             var email = user.Email;
@@ -88,7 +88,7 @@ namespace DNA.UI.Web.Controllers
                 var setEmailResult = await _userManager.SetEmailAsync(user, model.Email);
                 if (!setEmailResult.Succeeded)
                 {
-                    throw new ApplicationException($"Unexpected error occurred setting email for user with ID '{user.Id}'.");
+                    throw new ApplicationException($"Ocorreu um erro inesperado ao configurar o email para o usuário com ID '{user.Id}'.");
                 }
             }
 
@@ -98,11 +98,11 @@ namespace DNA.UI.Web.Controllers
                 var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, model.PhoneNumber);
                 if (!setPhoneResult.Succeeded)
                 {
-                    throw new ApplicationException($"Unexpected error occurred setting phone number for user with ID '{user.Id}'.");
+                    throw new ApplicationException($"Ocorreu um erro inesperado ao definir o número de telefone do usuário com ID '{user.Id}'.");
                 }
             }
 
-            StatusMessage = "Your profile has been updated";
+            StatusMessage = "Seu perfil foi atualizado";
             return RedirectToAction(nameof(Index));
         }
 
@@ -118,7 +118,7 @@ namespace DNA.UI.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Não foi possível carregar o usuário com o ID '{_userManager.GetUserId(User)}'.");
             }
 
             var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -126,7 +126,7 @@ namespace DNA.UI.Web.Controllers
             var email = user.Email;
             await _emailSender.SendEmailConfirmationAsync(email, callbackUrl);
 
-            StatusMessage = "Verification email sent. Please check your email.";
+            StatusMessage = "E-mail de verificação enviado.Por favor verifique seu email.";
             return RedirectToAction(nameof(Index));
         }
 
@@ -137,7 +137,7 @@ namespace DNA.UI.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Não foi possível carregar o usuário com o ID '{_userManager.GetUserId(User)}'.");
             }
 
             var hasPassword = await _userManager.HasPasswordAsync(user);
@@ -163,7 +163,7 @@ namespace DNA.UI.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Não foi possível carregar o usuário com o ID '{_userManager.GetUserId(User)}'.");
             }
 
             var changePasswordResult = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
@@ -174,8 +174,8 @@ namespace DNA.UI.Web.Controllers
             }
 
             await _signInManager.SignInAsync(user, isPersistent: false);
-            _logger.LogInformation("User changed their password successfully.");
-            StatusMessage = "Your password has been changed.";
+            _logger.LogInformation("O usuário alterou sua senha com sucesso.");
+            StatusMessage = "Sua senha foi mudada.";
 
             return RedirectToAction(nameof(ChangePassword));
         }
@@ -187,7 +187,7 @@ namespace DNA.UI.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Não foi possível carregar o usuário com o ID '{_userManager.GetUserId(User)}'.");
             }
 
             var hasPassword = await _userManager.HasPasswordAsync(user);
@@ -214,7 +214,7 @@ namespace DNA.UI.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Não foi possível carregar o usuário com o ID'{_userManager.GetUserId(User)}'.");
             }
 
             var addPasswordResult = await _userManager.AddPasswordAsync(user, model.NewPassword);
@@ -225,7 +225,7 @@ namespace DNA.UI.Web.Controllers
             }
 
             await _signInManager.SignInAsync(user, isPersistent: false);
-            StatusMessage = "Your password has been set.";
+            StatusMessage = "Sua senha foi definida.";
 
             return RedirectToAction(nameof(SetPassword));
         }
@@ -237,7 +237,7 @@ namespace DNA.UI.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Não foi possível carregar o usuário com o ID '{_userManager.GetUserId(User)}'.");
             }
 
             var model = new ExternalLoginsViewModel { CurrentLogins = await _userManager.GetLoginsAsync(user) };
@@ -255,10 +255,10 @@ namespace DNA.UI.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> LinkLogin(string provider)
         {
-            // Clear the existing external cookie to ensure a clean login process
+            // Limpa o cookie externo existente para garantir um processo de login limpo
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
-            // Request a redirect to the external login provider to link a login for the current user
+            // Solicita um redirecionamento para o provedor de logon externo para vincular um logon para o usuário atual
             var redirectUrl = Url.Action(nameof(LinkLoginCallback));
             var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl, _userManager.GetUserId(User));
             return new ChallengeResult(provider, properties);
@@ -270,25 +270,25 @@ namespace DNA.UI.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Não foi possível carregar o usuário com o ID '{_userManager.GetUserId(User)}'.");
             }
 
             var info = await _signInManager.GetExternalLoginInfoAsync(user.Id);
             if (info == null)
             {
-                throw new ApplicationException($"Unexpected error occurred loading external login info for user with ID '{user.Id}'.");
+                throw new ApplicationException($"Ocorreu um erro inesperado ao carregar informações de login externas para o usuário com ID '{user.Id}'.");
             }
 
             var result = await _userManager.AddLoginAsync(user, info);
             if (!result.Succeeded)
             {
-                throw new ApplicationException($"Unexpected error occurred adding external login for user with ID '{user.Id}'.");
+                throw new ApplicationException($"Ocorreu um erro inesperado ao adicionar logon externo para usuário com ID '{user.Id}'.");
             }
 
-            // Clear the existing external cookie to ensure a clean login process
+            // Limpe o cookie externo existente para garantir um processo de login limpo
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
-            StatusMessage = "The external login was added.";
+            StatusMessage = "O logon externo foi adicionado.";
             return RedirectToAction(nameof(ExternalLogins));
         }
 
@@ -300,17 +300,17 @@ namespace DNA.UI.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Não foi possível carregar o usuário com o ID '{_userManager.GetUserId(User)}'.");
             }
 
             var result = await _userManager.RemoveLoginAsync(user, model.LoginProvider, model.ProviderKey);
             if (!result.Succeeded)
             {
-                throw new ApplicationException($"Unexpected error occurred removing external login for user with ID '{user.Id}'.");
+                throw new ApplicationException($"Ocorreu um erro inesperado ao remover o logon externo do usuário com ID '{user.Id}'.");
             }
 
             await _signInManager.SignInAsync(user, isPersistent: false);
-            StatusMessage = "The external login was removed.";
+            StatusMessage = "O logon externo foi removido.";
             return RedirectToAction(nameof(ExternalLogins));
         }
 
@@ -321,7 +321,7 @@ namespace DNA.UI.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Não foi possível carregar o usuário com o ID '{_userManager.GetUserId(User)}'.");
             }
 
             var model = new TwoFactorAuthenticationViewModel
@@ -340,12 +340,12 @@ namespace DNA.UI.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Não foi possível carregar o usuário com o ID '{_userManager.GetUserId(User)}'.");
             }
 
             if (!user.TwoFactorEnabled)
             {
-                throw new ApplicationException($"Unexpected error occured disabling 2FA for user with ID '{user.Id}'.");
+                throw new ApplicationException($"Ocorreu um erro inesperado ao desativar o 2FA para o usuário com ID '{user.Id}'.");
             }
 
             return View(nameof(Disable2fa));
@@ -358,16 +358,16 @@ namespace DNA.UI.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Não foi possível carregar o usuário com o ID '{_userManager.GetUserId(User)}'.");
             }
 
             var disable2faResult = await _userManager.SetTwoFactorEnabledAsync(user, false);
             if (!disable2faResult.Succeeded)
             {
-                throw new ApplicationException($"Unexpected error occured disabling 2FA for user with ID '{user.Id}'.");
+                throw new ApplicationException($"Ocorreu um erro inesperado ao desativar o 2FA para o usuário com ID '{user.Id}'.");
             }
 
-            _logger.LogInformation("User with ID {UserId} has disabled 2fa.", user.Id);
+            _logger.LogInformation("O usuário com o ID {UserId} desativou 2fa.", user.Id);
             return RedirectToAction(nameof(TwoFactorAuthentication));
         }
 
@@ -378,7 +378,7 @@ namespace DNA.UI.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Não foi possível carregar o usuário com o ID '{_userManager.GetUserId(User)}'.");
             }
 
             var unformattedKey = await _userManager.GetAuthenticatorKeyAsync(user);
@@ -410,10 +410,10 @@ namespace DNA.UI.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Não foi possível carregar o usuário com o ID '{_userManager.GetUserId(User)}'.");
             }
 
-            // Strip spaces and hypens
+            // Espaços de faixa e hífens
             var verificationCode = model.Code.Replace(" ", string.Empty).Replace("-", string.Empty);
 
             var is2faTokenValid = await _userManager.VerifyTwoFactorTokenAsync(
@@ -421,12 +421,12 @@ namespace DNA.UI.Web.Controllers
 
             if (!is2faTokenValid)
             {
-                ModelState.AddModelError("model.Code", "Verification code is invalid.");
+                ModelState.AddModelError("model.Code", "O código de verificação é inválido.");
                 return View(model);
             }
 
             await _userManager.SetTwoFactorEnabledAsync(user, true);
-            _logger.LogInformation("User with ID {UserId} has enabled 2FA with an authenticator app.", user.Id);
+            _logger.LogInformation("O usuário com o ID {UserId} ativou o 2FA com um aplicativo autenticador.", user.Id);
             return RedirectToAction(nameof(GenerateRecoveryCodes));
         }
 
@@ -445,12 +445,12 @@ namespace DNA.UI.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Não foi possível carregar o usuário com o ID'{_userManager.GetUserId(User)}'.");
             }
 
             await _userManager.SetTwoFactorEnabledAsync(user, false);
             await _userManager.ResetAuthenticatorKeyAsync(user);
-            _logger.LogInformation("User with id '{UserId}' has reset their authentication app key.", user.Id);
+            _logger.LogInformation("O usuário com o ID '{UserId}' redefiniu sua chave do aplicativo de autenticação.", user.Id);
 
             return RedirectToAction(nameof(EnableAuthenticator));
         }
@@ -461,18 +461,18 @@ namespace DNA.UI.Web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Não foi possível carregar o usuário com o ID '{_userManager.GetUserId(User)}'.");
             }
 
             if (!user.TwoFactorEnabled)
             {
-                throw new ApplicationException($"Cannot generate recovery codes for user with ID '{user.Id}' as they do not have 2FA enabled.");
+                throw new ApplicationException($"Não é possível gerar códigos de recuperação para o usuário com o ID '{user.Id}', pois eles não têm o 2FA ativado.");
             }
 
             var recoveryCodes = await _userManager.GenerateNewTwoFactorRecoveryCodesAsync(user, 10);
             var model = new GenerateRecoveryCodesViewModel { RecoveryCodes = recoveryCodes.ToArray() };
 
-            _logger.LogInformation("User with ID {UserId} has generated new 2FA recovery codes.", user.Id);
+            _logger.LogInformation("O usuário com o ID {UserId} gerou novos códigos de recuperação 2FA.", user.Id);
 
             return View(model);
         }
