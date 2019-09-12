@@ -5,7 +5,7 @@ namespace DNA.Domain.Interfaces.Cadastros.Pessoas.Usuarios
 {
     public interface IUser
     {
-        string Name { get; }
+        string Nome { get; }
         bool IsAuthenticated();
         IEnumerable<Claim> GetClaimsIdentity();
     }

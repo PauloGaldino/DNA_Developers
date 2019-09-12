@@ -2,6 +2,7 @@
 using DNA.CrossCutting.Identity.Data;
 using DNA.CrossCutting.Identity.Models;
 using DNA.CrossCutting.IoC;
+using DNA.Infra.Data.Context;
 using DNA.UI.Web.Extensions;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -29,6 +30,9 @@ namespace DNA.UI.Web
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<EventStoreSQLContext>(options =>
+              options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -64,8 +68,9 @@ namespace DNA.UI.Web
               .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("CanWriteClienteData", policy => policy.Requirements.Add(new ClaimRequirement("Clientes", "Write")));
-                options.AddPolicy("CanRemoveClienteData", policy => policy.Requirements.Add(new ClaimRequirement("Clientes", "Remove")));
+                options.AddPolicy("CanWriteClienteData", policy => policy.Requirements.Add(new ClaimRequirement("Customers", "Write")));
+                options.AddPolicy("CanRemoveClienteData", policy => policy.Requirements.Add(new ClaimRequirement("Customers", "Remove")));
+
             });
 
             // Adicionando o MediatR para eventos e notificações do domínio

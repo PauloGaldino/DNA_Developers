@@ -65,14 +65,14 @@ namespace DNA.UI.Web.Controllers
             _clienteAppService.Register(clienteViewModel);
 
             if (IsValidOperation())
-                ViewBag.Sucesso = "CLiente Registrado com sucesso!";
+                ViewBag.Sucesso = "Cliente Registrado com sucesso!";
 
             return View(clienteViewModel);
         }
         
         [HttpGet]
         [Authorize(Policy = "CanWriteClienteData")]
-        [Route("customer-management/edit-customer/{id:guid}")]
+        [Route("cliente-management/edit-cliente/{id:guid}")]
         public IActionResult Edit(Guid? id)
         {
             if (id == null)

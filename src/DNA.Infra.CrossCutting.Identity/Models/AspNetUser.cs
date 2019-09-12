@@ -14,7 +14,7 @@ namespace DNA.CrossCutting.Identity.Models
             _accessor = accessor;
         }
 
-        public string Name => _accessor.HttpContext.User.Identity.Name;
+        public string Nome => _accessor.HttpContext.User.Identity.Name;
 
         public bool IsAuthenticated()
         {

@@ -9,13 +9,13 @@ namespace DNA.Application.ViewModels
         [Key]
         public Guid Id { get; set; }
 
-        [Required(ErrorMessage = "The Name is Required")]
+        [Required(ErrorMessage = "O nome é obrigatório")]
         [MinLength(2)]
         [MaxLength(100)]
         [DisplayName("Nome")]
         public string Nome { get; set; }
 
-        [Required(ErrorMessage = "The E-mail is Required")]
+        [Required(ErrorMessage = "O E-mail é obrigatório.Nome é obrigatório")]
         [EmailAddress]
         [DisplayName("E-mail")]
         public string Email { get; set; }

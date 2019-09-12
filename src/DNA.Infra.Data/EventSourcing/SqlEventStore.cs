@@ -24,7 +24,7 @@ namespace DNA.Infra.Data.EventSourcing
             var storedEvent = new StoredEvent(
                 theEvent,
                 serializedData,
-                _user.Name);
+                _user.Nome);
 
             _eventStoreRepository.Store(storedEvent);
         }
