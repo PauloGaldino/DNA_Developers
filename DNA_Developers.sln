@@ -52,6 +52,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Global.json = Global.json
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.2.4-Cruss.Cutting.Heplers", "5.2.4-Cruss.Cutting.Heplers", "{1C339FA8-48C5-44D5-8838-1A5F8ED1257B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -120,6 +122,7 @@ Global
 		{742DEF02-7C7B-41BB-A59D-705D99EDD5C7} = {3CAA04B0-CD28-4D22-83D7-D92FDE882AE7}
 		{36043FAC-1AA3-45E9-8BB3-D68F6AD560B5} = {09CD2D8B-EECF-457F-ACEC-0AA7CF94F00A}
 		{36A5E495-8583-4FFA-A995-AD7EDD45DE4D} = {F6E50C35-169F-4DB2-935B-DF057D5987D9}
+		{1C339FA8-48C5-44D5-8838-1A5F8ED1257B} = {B53E09EE-721A-464C-9F46-D1C73B2169C0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7C63CC1F-0AFB-4E47-AF33-D12FC20E6581}

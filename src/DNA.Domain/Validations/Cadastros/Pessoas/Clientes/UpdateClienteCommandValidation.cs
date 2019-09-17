@@ -7,8 +7,8 @@ namespace DNA.Domain.Validations.Cadastros.Pessoas.Clientes
         public UpdateClienteCommandValidation()
         {
             ValidateId();
-            ValidateName();
-            ValidateBirthDate();
+            ValidateNome();
+            ValidateDataNascimento();
             ValidateEmail();
         }
     }

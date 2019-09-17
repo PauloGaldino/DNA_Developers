@@ -9,7 +9,7 @@
 <form asp-action="Delete">
     <vc:summary />
 
-    <h3>Are you sure you want to delete the @Model.Nome?</h3>
+    <h3>Você deseja realmente excluir o @Model.Nome?</h3>
     <div>
         <hr />
         <dl class="dl-horizontal">
@@ -35,8 +35,8 @@
 
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-danger" />
-            <a asp-action="Index" class="btn btn-info">Back to List</a>
+            <input type="submit" value="Deletar" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-info">Voltar para a lista</a>
         </div>
     </div>
 </form>

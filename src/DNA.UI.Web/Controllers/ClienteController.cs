@@ -11,25 +11,25 @@ namespace DNA.UI.Web.Controllers
     [Authorize]
     public class ClienteController : BaseController
     {
-        private readonly IClienteAppService _clienteAppService;
+        private readonly IClienteAppService _customerAppService;
 
-        public ClienteController(IClienteAppService clienteAppService, 
+        public ClienteController(IClienteAppService customerAppService,
                                   INotificationHandler<DomainNotification> notifications) : base(notifications)
         {
-            _clienteAppService = clienteAppService;
+            _customerAppService = customerAppService;
         }
 
         [HttpGet]
         [AllowAnonymous]
-        [Route("cliente-management/list-all")]
+        [Route("customer-management/list-all")]
         public IActionResult Index()
         {
-            return View(_clienteAppService.GetAll());
+            return View(_customerAppService.GetAll());
         }
 
         [HttpGet]
         [AllowAnonymous]
-        [Route("cliente-management/cliente-details/{id:guid}")]
+        [Route("customer-management/customer-details/{id:guid}")]
         public IActionResult Details(Guid? id)
         {
             if (id == null)
@@ -37,42 +37,42 @@ namespace DNA.UI.Web.Controllers
                 return NotFound();
             }
 
-            var clienteViewModel = _clienteAppService.GetById(id.Value);
+            var customerViewModel = _customerAppService.GetById(id.Value);
 
-            if (clienteViewModel == null)
+            if (customerViewModel == null)
             {
                 return NotFound();
             }
 
-            return View(clienteViewModel);
+            return View(customerViewModel);
         }
 
         [HttpGet]
-        [Authorize(Policy = "CanWriteClienteData")]
-        [Route("cliente-management/register-new")]
+        [Authorize(Policy = "CanWriteCustomerData")]
+        [Route("customer-management/register-new")]
         public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        [Authorize(Policy = "CanWriteClienteData")]
-        [Route("cliente-management/register-new")]
+        [Authorize(Policy = "CanWriteCustomerData")]
+        [Route("customer-management/register-new")]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(ClienteViewModel clienteViewModel)
+        public IActionResult Create(ClienteViewModel customerViewModel)
         {
-            if (!ModelState.IsValid) return View(clienteViewModel);
-            _clienteAppService.Register(clienteViewModel);
+            if (!ModelState.IsValid) return View(customerViewModel);
+            _customerAppService.Register(customerViewModel);
 
             if (IsValidOperation())
-                ViewBag.Sucesso = "Cliente Registrado com sucesso!";
+                ViewBag.Sucesso = "Customer Registered!";
 
-            return View(clienteViewModel);
+            return View(customerViewModel);
         }
-        
+
         [HttpGet]
-        [Authorize(Policy = "CanWriteClienteData")]
-        [Route("cliente-management/edit-cliente/{id:guid}")]
+        [Authorize(Policy = "CanWriteCustomerData")]
+        [Route("customer-management/edit-customer/{id:guid}")]
         public IActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -80,35 +80,35 @@ namespace DNA.UI.Web.Controllers
                 return NotFound();
             }
 
-            var clienteViewModel = _clienteAppService.GetById(id.Value);
+            var customerViewModel = _customerAppService.GetById(id.Value);
 
-            if (clienteViewModel == null)
+            if (customerViewModel == null)
             {
                 return NotFound();
             }
 
-            return View(clienteViewModel);
+            return View(customerViewModel);
         }
 
         [HttpPost]
-        [Authorize(Policy = "CanWriteClienteData")]
-        [Route("cliente-management/edit-cliente/{id:guid}")]
+        [Authorize(Policy = "CanWriteCustomerData")]
+        [Route("customer-management/edit-customer/{id:guid}")]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(ClienteViewModel clienteViewModel)
+        public IActionResult Edit(ClienteViewModel customerViewModel)
         {
-            if (!ModelState.IsValid) return View(clienteViewModel);
+            if (!ModelState.IsValid) return View(customerViewModel);
 
-            _clienteAppService.Update(clienteViewModel);
+            _customerAppService.Update(customerViewModel);
 
             if (IsValidOperation())
-                ViewBag.Sucesso = "Cliente autalizado com sucesso!";
+                ViewBag.Sucesso = "Customer Updated!";
 
-            return View(clienteViewModel);
+            return View(customerViewModel);
         }
 
         [HttpGet]
-        [Authorize(Policy = "CanRemoveClienteData")]
-        [Route("cliente-management/remove-cliente/{id:guid}")]
+        [Authorize(Policy = "CanRemoveCustomerData")]
+        [Route("customer-management/remove-customer/{id:guid}")]
         public IActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -116,36 +116,36 @@ namespace DNA.UI.Web.Controllers
                 return NotFound();
             }
 
-            var clienteViewModel = _clienteAppService.GetById(id.Value);
+            var customerViewModel = _customerAppService.GetById(id.Value);
 
-            if (clienteViewModel == null)
+            if (customerViewModel == null)
             {
                 return NotFound();
             }
 
-            return View(clienteViewModel);
+            return View(customerViewModel);
         }
 
         [HttpPost, ActionName("Delete")]
-        [Authorize(Policy = "CanRemoveClienteData")]
-        [Route("cliente-management/remove-cliente/{id:guid}")]
+        [Authorize(Policy = "CanRemoveCustomerData")]
+        [Route("customer-management/remove-customer/{id:guid}")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(Guid id)
         {
-            _clienteAppService.Remove(id);
+            _customerAppService.Remove(id);
 
-            if (!IsValidOperation()) return View(_clienteAppService.GetById(id));
+            if (!IsValidOperation()) return View(_customerAppService.GetById(id));
 
-            ViewBag.Sucesso = "Cliente removido cm sucesso!";
+            ViewBag.Sucesso = "Customer Removed!";
             return RedirectToAction("Index");
         }
 
         [AllowAnonymous]
-        [Route("cliente-management/cliente-history/{id:guid}")]
+        [Route("customer-management/customer-history/{id:guid}")]
         public JsonResult History(Guid id)
         {
-            var clienteHistoryData = _clienteAppService.GetAllHistory(id);
-            return Json(clienteHistoryData);
+            var customerHistoryData = _customerAppService.GetAllHistory(id);
+            return Json(customerHistoryData);
         }
     }
 }

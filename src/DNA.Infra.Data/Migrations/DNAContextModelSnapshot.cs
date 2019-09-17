@@ -25,7 +25,7 @@ namespace DNA.Infra.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnName("Id");
 
-                    b.Property<DateTime>("DataNasciemnto");
+                    b.Property<DateTime>("DataNascimento");
 
                     b.Property<string>("Email")
                         .IsRequired()

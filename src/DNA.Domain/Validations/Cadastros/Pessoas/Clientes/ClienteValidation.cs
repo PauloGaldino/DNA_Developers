@@ -6,14 +6,14 @@ namespace DNA.Domain.Validations.Cadastros.Pessoas.Clientes
 {
     public abstract class ClienteValidation<T> : AbstractValidator<T> where T : ClienteCommand
     {
-        protected void ValidateName()
+        protected void ValidateNome()
         {
             RuleFor(c => c.Nome)
                 .NotEmpty().WithMessage("Verifique se você digitou o Nome.")
                 .Length(2, 150).WithMessage("O nome deve ter entre 2 e 150 caracteres.");
         }
 
-        protected void ValidateBirthDate()
+        protected void ValidateDataNascimento()
         {
             RuleFor(c => c.DataNascimento)
                 .NotEmpty()

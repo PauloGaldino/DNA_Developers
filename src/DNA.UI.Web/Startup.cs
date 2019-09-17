@@ -29,7 +29,11 @@ namespace DNA.UI.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+             options.UseSqlServer(
+                 Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<DNAContext>(options =>
+          options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDbContext<EventStoreSQLContext>(options =>
               options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -68,9 +72,8 @@ namespace DNA.UI.Web
               .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("CanWriteClienteData", policy => policy.Requirements.Add(new ClaimRequirement("Customers", "Write")));
-                options.AddPolicy("CanRemoveClienteData", policy => policy.Requirements.Add(new ClaimRequirement("Customers", "Remove")));
-
+                options.AddPolicy("CanWriteCustomerData", policy => policy.Requirements.Add(new ClaimRequirement("Customers", "Write")));
+                options.AddPolicy("CanRemoveCustomerData", policy => policy.Requirements.Add(new ClaimRequirement("Customers", "Remove")));
             });
 
             // Adicionando o MediatR para eventos e notificações do domínio

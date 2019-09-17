@@ -12,7 +12,10 @@
 
         <input type="hidden" asp-for="Id" />
 
-        @* Replacing classic Validation Summary to Cliente ViewComponent as TagHelper *@
+
+        <input type="hidden" asp-for="Id" />
+
+        @* Replacing classic Validation Summary to Custom ViewComponent as TagHelper *@
         <vc:summary />
 
         <div class="form-group">
@@ -41,8 +44,8 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-success" />
-                <a asp-action="Index" class="btn btn-info">Back to List</a>
+                <input type="submit" value="Salvar" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-info">Voltar para a lista</a>
             </div>
         </div>
     </div>

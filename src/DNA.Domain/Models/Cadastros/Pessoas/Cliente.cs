@@ -10,7 +10,7 @@ namespace DNA.Domain.Models.Cadastros.Pessoas
             Id = id;
             Nome = nome;
             Email = email;
-            DataNasciemnto = dataNascimento;
+            DataNascimento = dataNascimento;
         }
 
         // Empty constructor for EF
@@ -20,6 +20,6 @@ namespace DNA.Domain.Models.Cadastros.Pessoas
 
         public string Email { get; private set; }
 
-        public DateTime DataNasciemnto { get; private set; }
+        public DateTime DataNascimento { get; private set; }
     }
 }

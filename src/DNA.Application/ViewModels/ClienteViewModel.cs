@@ -20,7 +20,7 @@ namespace DNA.Application.ViewModels
         [DisplayName("E-mail")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "The BirthDate is Required")]
+        [Required(ErrorMessage = "A data de nascimento é obrigatória ")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         [DataType(DataType.Date, ErrorMessage = "Data em formato inválido")]
         [DisplayName("Data de Nascimento")]

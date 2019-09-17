@@ -12,21 +12,20 @@ namespace DNA.Domain.EventHandlers.Casdastros.Pessoas.Clientes
     {
         public Task Handle(ClienteUpdatedEvent message, CancellationToken cancellationToken)
         {
-            // Send some notification e-mail
+            // Enviar algum email de notificação
 
             return Task.CompletedTask;
         }
 
         public Task Handle(ClienteRegisteredEvent message, CancellationToken cancellationToken)
         {
-            // Send some greetings e-mail
-
+            // Envie um e-mail de saudações
             return Task.CompletedTask;
         }
 
         public Task Handle(ClienteRemovedEvent message, CancellationToken cancellationToken)
         {
-            // Send some see you soon e-mail
+            // Envie alguns e-mails em breve
 
             return Task.CompletedTask;
         }

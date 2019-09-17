@@ -5,12 +5,12 @@ namespace DNA.Domain.Commands.Cadastros.Pessoas.Clientes
 {
      public class UpdateClienteCommand : ClienteCommand
     {
-        public UpdateClienteCommand(Guid id, string nome, string email, DateTime dataNascmento)
+        public UpdateClienteCommand(Guid id, string nome, string email, DateTime dataNascimento)
         {
             Id = id;
             Nome = nome;
             Email = email;
-            DataNascimento = dataNascmento;
+            DataNascimento = dataNascimento;
         }
 
         public override bool IsValid()

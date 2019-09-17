@@ -49,7 +49,7 @@ namespace DNA.Domain.CommandHandlers
 
             if (Commit())
             {
-                Bus.RaiseEvent(new ClienteRegisteredEvent(cliente.Id, cliente.Nome, cliente.Email, cliente.DataNasciemnto ));
+                Bus.RaiseEvent(new ClienteRegisteredEvent(cliente.Id, cliente.Nome, cliente.Email, cliente.DataNascimento ));
             }
 
             return Task.FromResult(true);
@@ -79,7 +79,7 @@ namespace DNA.Domain.CommandHandlers
 
             if (Commit())
             {
-                Bus.RaiseEvent(new ClienteUpdatedEvent(cliente.Id, cliente.Nome, cliente.Email, cliente.DataNasciemnto));
+                Bus.RaiseEvent(new ClienteUpdatedEvent(cliente.Id, cliente.Nome, cliente.Email, cliente.DataNascimento));
             }
 
             return Task.FromResult(true);

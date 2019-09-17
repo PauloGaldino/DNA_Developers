@@ -1,7 +1,7 @@
 @model IEnumerable<DNA.Application.ViewModels.ClienteViewModel>
 
 @{
-    ViewData["Title"] = "Cliente Management";
+    ViewData["Title"] = "Gerenciamento do Cliente";
 }
 
 <div>
@@ -60,7 +60,7 @@
                         <span class="glyphicon glyphicon-search"></span>
                     </a>
                         
-                    <a asp-action="Delete" asp-route-id="@item.Id" title="Delete" class="btn btn-danger">
+                    <a asp-action="Delete" asp-route-id="@item.Id" title="Deletar" class="btn btn-danger">
                         <span class="glyphicon glyphicon-trash"></span>
                     </a>
                     
@@ -74,7 +74,7 @@
     </table>
 </div>
 
-<div class="modal fade" id="custumerHistory" role="dialog">
+<div class="modal fade" id="clienteHistory" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -82,10 +82,10 @@
                 <h4 class="modal-title">Cliente Data History</h4>
             </div>
             <div class="modal-body">
-                <p id="customerHistoryData"></p>
+                <p id="clienteHistoryData"></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
             </div>
         </div>
     </div>
@@ -95,9 +95,10 @@
 {
     <script type="text/javascript">
         $(".viewbutton").on("click", function() {
-            var customerId = $(this).data('id');
+            var clienteId = $(this).data('id');
             $.ajax({
                 url: "https://localhost:44366/cliente-management/cliente-history/" + clienteId,
+                 url: "https://localhost:5001/cliente-management/cliente-history/" + clienteId,
                 //url: "http://DNA_Developer.azurewebsites.net/cliente-management/clinete-history/" + clienteId,
                 cache: false
             }).done(function(data) {

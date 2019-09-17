@@ -7,12 +7,12 @@ namespace DNA.CrossCutting.Identity.Models.AccountViewModels
         [Required]
         [StringLength(7, ErrorMessage = "O {0} deve ter pelo menos {2} e no máximo {1} caracteres.", MinimumLength = 6)]
         [DataType(DataType.Text)]
-        [Display(Name = "Authenticator code")]
+        [Display(Name = "Código de autenticação")]
         public string TwoFactorCode { get; set; }
 
-        [Display(Name = "Remember this machine")]
+        [Display(Name = "Lembrar desta maquina")]
         public bool RememberMachine { get; set; }
-
+ 
         public bool RememberMe { get; set; }
     }
 }
