@@ -1,5 +1,7 @@
 ﻿using DNA.Domain.Models.Cadastros.Pessoas;
+using DNA.Domain.Models.Cadastros.Producao;
 using DNA.Infra.Data.Mapping.Cadastros.Pessoas.Clientes;
+using DNA.Infra.Data.Mapping.Cadastros.Producao.Produtos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -16,10 +18,12 @@ namespace DNA.Infra.Data.Context
         }
 
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ClienteMap());
+            modelBuilder.ApplyConfiguration(new CategoriaMap());
 
             base.OnModelCreating(modelBuilder);
         }

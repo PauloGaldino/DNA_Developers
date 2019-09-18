@@ -1,4 +1,4 @@
-﻿using DNA.Application.Interfaces;
+﻿using DNA.Application.Interfaces.Cadastro.Pessoas.Clientes;
 using DNA.Application.ViewModels;
 using DNA.Domain.Core.Bus;
 using DNA.Domain.Core.Notifications;
