@@ -1,5 +1,3 @@
-using System;
-
 namespace DNA.UI.Web.Models
 {
     public class ErrorViewModel

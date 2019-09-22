@@ -29,6 +29,8 @@ namespace DNA.CrossCutting.Identity.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
+                    b.Property<DateTime>("DataNascimento");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256);
 
@@ -37,6 +39,8 @@ namespace DNA.CrossCutting.Identity.Migrations
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
+
+                    b.Property<string>("Nome");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256);

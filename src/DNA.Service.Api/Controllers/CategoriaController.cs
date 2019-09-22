@@ -1,5 +1,5 @@
-﻿using DNA.Application.Interfaces.Cadastro.Producao.Produtos;
-using DNA.Application.ViewModels.Cadastro.Producao.Produtos;
+﻿using DNA.Application.Interfaces;
+using DNA.Application.ViewModels;
 using DNA.Domain.Core.Bus;
 using DNA.Domain.Core.Notifications;
 using MediatR;

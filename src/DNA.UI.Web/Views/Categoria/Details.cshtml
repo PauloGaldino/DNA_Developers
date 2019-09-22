@@ -1,0 +1,30 @@
+﻿@model DNA.Application.ViewModels.CategoriaViewModel
+
+@{
+    ViewData["Title"] = "Detalhes do Cliente";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model =>model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+     
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+    <a asp-action="Index" class="btn btn-info">Voltar para a lista</a>
+</div>

@@ -42,7 +42,7 @@ namespace DNA.Infra.Data.Migrations
                     b.ToTable("Clientes");
                 });
 
-            modelBuilder.Entity("DNA.Domain.Models.Cadastros.Producao.Categoria", b =>
+            modelBuilder.Entity("DNA.Domain.Models.Categoria", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -51,6 +51,10 @@ namespace DNA.Infra.Data.Migrations
                     b.Property<string>("Descricao")
                         .IsRequired()
                         .HasColumnType("Varchar(200)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("Varchar(150)");
 
                     b.HasKey("Id");
 

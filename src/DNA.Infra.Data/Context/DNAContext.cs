@@ -1,5 +1,5 @@
 ﻿using DNA.Domain.Models.Cadastros.Pessoas;
-using DNA.Domain.Models.Cadastros.Producao;
+using DNA.Domain.Models;
 using DNA.Infra.Data.Mapping.Cadastros.Pessoas.Clientes;
 using DNA.Infra.Data.Mapping.Cadastros.Producao.Produtos;
 using Microsoft.EntityFrameworkCore;

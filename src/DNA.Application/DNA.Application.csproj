@@ -15,4 +15,11 @@
     <ProjectReference Include="..\DNA.Infra.Data\DNA.Infra.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="EventSourcedNormalizers\Cadasrtro\Producao\Produtos\" />
+    <Folder Include="Interfaces\Cadastro\Producao\Produtos\" />
+    <Folder Include="Services\Cadastro\Producao\Produtos\" />
+    <Folder Include="ViewModels\Cadastro\Producao\Produtos\" />
+  </ItemGroup>
+
 </Project>

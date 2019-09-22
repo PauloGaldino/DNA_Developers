@@ -11,13 +11,12 @@
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment names="Staging,Production">
+        <link href="~/Content/SitePersonalizado.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" /> 
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-
-
     </environment>
 </head>
 <body>
@@ -34,7 +33,24 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Cliente" asp-action="Index">Clientes</a></li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Cadastros
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-area="" asp-controller="Cliente" asp-action="Index">Cliente</a></li>
+                            <li><a asp-area="" asp-controller="Categoria" asp-action="Index">Categoria</a></li>
+
+                            <li class="nav-divider"></li>
+                            Contatos
+
+                            <li class="nav-divider"></li>
+                            Profissoes
+
+                        </ul>
+                    </li>
+                   
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
@@ -55,6 +71,10 @@
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment names="Staging,Production">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
                 asp-fallback-test="window.jQuery">

@@ -6,7 +6,7 @@ namespace DNA.Application.ViewModels
 {
     public class ClienteViewModel
     {
-        internal readonly string De;
+      
 
         [Key]
         public Guid Id { get; set; }

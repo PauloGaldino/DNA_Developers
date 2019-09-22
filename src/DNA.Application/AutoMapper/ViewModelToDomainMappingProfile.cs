@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
 using DNA.Application.ViewModels;
-using DNA.Application.ViewModels.Cadastro.Producao.Produtos;
 using DNA.Domain.Commands.Cadastros.Pessoas.Clientes;
-using DNA.Domain.Commands.Cadastros.Producao.Produto;
+using DNA.Domain.Commands;
 
 namespace DNA.Application.AutoMapper
 {
@@ -18,9 +17,9 @@ namespace DNA.Application.AutoMapper
 
             //Categoria
             CreateMap<CategoriaViewModel, RegisterNewCategoriaCommand>()
-               .ConstructUsing(c => new RegisterNewCategoriaCommand(c.Descricao));
+               .ConstructUsing(c => new RegisterNewCategoriaCommand(c.Nome, c.Descricao));
             CreateMap<CategoriaViewModel, UpdateCategoriaCommand>()
-                .ConstructUsing(c => new UpdateCategoriaCommand(c.Id, c.Descricao));
+                .ConstructUsing(c => new UpdateCategoriaCommand(c.Id, c.Nome, c.Descricao));
         }
     }
 }

@@ -16,4 +16,15 @@
     <ProjectReference Include="..\DNA.Domain.core\DNA.Domain.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="CommandHandlers\Cadastros\Producao\Produtos\" />
+    <Folder Include="Commands\Cadastros\Producao\Produto\" />
+    <Folder Include="EventHandlers\Casdastros\Producao\Produtos\" />
+    <Folder Include="Events\Cadastros\Producao\Produtos\" />
+    <Folder Include="Interfaces\Cadastros\Producao\Produtos\" />
+    <Folder Include="Models\Cadastros\Producao\" />
+    <Folder Include="Models\Cadastros\Vendas\" />
+    <Folder Include="Validations\Cadastros\Producao\Produto\" />
+  </ItemGroup>
+
 </Project>

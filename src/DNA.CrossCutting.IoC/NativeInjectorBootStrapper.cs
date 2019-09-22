@@ -1,24 +1,25 @@
-﻿using DNA.Application.Interfaces.Cadastro.Pessoas.Clientes;
+﻿using DNA.Application.Interfaces;
+using DNA.Application.Interfaces.Cadastro.Pessoas.Clientes;
 using DNA.Application.Services.Cadastro.Pessoas.Clientes;
+using DNA.Application.Services.Cadastro.Producao.Produtos;
 using DNA.CrossCutting.Bus;
 using DNA.CrossCutting.Identity.Authorization;
 using DNA.CrossCutting.Identity.Models;
 using DNA.CrossCutting.Identity.Services;
+using DNA.Domain.CommandHandlers;
 using DNA.Domain.CommandHandlers.Cadastros.Pessoas.Clientes;
-using DNA.Domain.CommandHandlers.Cadastros.Producao.Produtos;
+using DNA.Domain.Commands;
 using DNA.Domain.Commands.Cadastros.Pessoas.Clientes;
-using DNA.Domain.Commands.Cadastros.Producao.Produto;
 using DNA.Domain.Core.Bus;
 using DNA.Domain.Core.Events.Interfaces;
 using DNA.Domain.Core.Notifications;
+using DNA.Domain.EventHandlers;
 using DNA.Domain.EventHandlers.Casdastros.Pessoas.Clientes;
-using DNA.Domain.EventHandlers.Casdastros.Producao.Produtos;
+using DNA.Domain.Events;
 using DNA.Domain.Events.Cadastros.Pessoas.Clientes;
-using DNA.Domain.Events.Cadastros.Producao.Produtos;
 using DNA.Domain.Interfaces;
 using DNA.Domain.Interfaces.Cadastros.Pessoas.Clientes;
 using DNA.Domain.Interfaces.Cadastros.Pessoas.Usuarios;
-using DNA.Domain.Interfaces.Cadastros.Producao.Produtos;
 using DNA.Infra.Data.Context;
 using DNA.Infra.Data.EventSourcing;
 using DNA.Infra.Data.Repository.Cadastros.Pessoas.Clientes;
@@ -47,6 +48,8 @@ namespace DNA.CrossCutting.IoC
             // Application
             //===================================================================================================
             services.AddScoped<IClienteAppService, ClienteAppService>();
+
+            services.AddScoped<ICategoriaAppService, CategoriaAppService>();
 
             //Domaain
             //=================================================================================================== 

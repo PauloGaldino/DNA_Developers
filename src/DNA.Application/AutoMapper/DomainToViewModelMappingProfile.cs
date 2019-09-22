@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
 using DNA.Application.ViewModels;
-using DNA.Application.ViewModels.Cadastro.Producao.Produtos;
 using DNA.Domain.Models.Cadastros.Pessoas;
-using DNA.Domain.Models.Cadastros.Producao;
+using DNA.Domain.Models;
 
 namespace DNA.Application.AutoMapper
 {

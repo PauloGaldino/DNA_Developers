@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DNA.Application.ViewModels.CategoriaViewModel>
+@{
+    ViewData["Title"] = "Pesquisar categoria";
+}
+
+<!DOCTYPE html>
+<div class="form-group input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+    <input name="consulta" id="txt_consulta" placeholder="Consultar" type="text" class="form-control">
+
+</div>
+<div class="panel panel-default">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descricao)
+                    </td>
+
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" title="Editar" class="btn btn-warning">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+
+                        <a asp-action="Details" asp-route-id="@item.Id" title="Detalhes" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </a>
+
+                        <a asp-action="Delete" asp-route-id="@item.Id" title="Deletar" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+
+                        <button type="button" class="btn btn-purple viewbutton" title="History" data-id="@item.Id" data-toggle="modal" data-target="#clienteHistory">
+                            <span class="glyphicon glyphicon-time"></span>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>table>

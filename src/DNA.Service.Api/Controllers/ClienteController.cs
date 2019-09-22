@@ -13,83 +13,83 @@ namespace DNA.Service.Api.Controllers
     public class ClienteController : ApiController
     {
 
-        private readonly IClienteAppService _customerAppService;
+        private readonly IClienteAppService _clienteAppService;
 
         public ClienteController(
-            IClienteAppService customerAppService,
+            IClienteAppService clienteAppService,
             INotificationHandler<DomainNotification> notifications,
             IMediatorHandler mediator) : base(notifications, mediator)
         {
-            _customerAppService = customerAppService;
+            _clienteAppService = clienteAppService;
         }
 
         [HttpGet]
         [AllowAnonymous]
-        [Route("customer-management")]
+        [Route("cliente-management")]
         public IActionResult Get()
         {
-            return Response(_customerAppService.GetAll());
+            return Response(_clienteAppService.GetAll());
         }
 
         [HttpGet]
         [AllowAnonymous]
-        [Route("customer-management/{id:guid}")]
+        [Route("cliente-management/{id:guid}")]
         public IActionResult Get(Guid id)
         {
-            var customerViewModel = _customerAppService.GetById(id);
+            var clienteViewModel = _clienteAppService.GetById(id);
 
-            return Response(customerViewModel);
+            return Response(clienteViewModel);
         }
 
         [HttpPost]
-        [Authorize(Policy = "CanWriteCustomerData")]
-        [Route("customer-management")]
-        public IActionResult Post([FromBody]ClienteViewModel customerViewModel)
+        [Authorize(Policy = "CanWriteCustumerData")]
+        [Route("cliente-management")]
+        public IActionResult Post([FromBody]ClienteViewModel clienteViewModel)
         {
             if (!ModelState.IsValid)
             {
                 NotifyModelStateErrors();
-                return Response(customerViewModel);
+                return Response(clienteViewModel);
             }
 
-            _customerAppService.Register(customerViewModel);
+            _clienteAppService.Register(clienteViewModel);
 
-            return Response(customerViewModel);
+            return Response(clienteViewModel);
         }
 
         [HttpPut]
-        [Authorize(Policy = "CanWriteCustomerData")]
-        [Route("customer-management")]
-        public IActionResult Put([FromBody]ClienteViewModel customerViewModel)
+        [Authorize(Policy = "CanWriteCustumerData")]
+        [Route("cliente-management")]
+        public IActionResult Put([FromBody]ClienteViewModel clienteViewModel)
         {
             if (!ModelState.IsValid)
             {
                 NotifyModelStateErrors();
-                return Response(customerViewModel);
+                return Response(clienteViewModel);
             }
 
-            _customerAppService.Update(customerViewModel);
+            _clienteAppService.Update(clienteViewModel);
 
-            return Response(customerViewModel);
+            return Response(clienteViewModel);
         }
 
         [HttpDelete]
-        [Authorize(Policy = "CanRemoveCustomerData")]
-        [Route("customer-management")]
+        [Authorize(Policy = "CanRemoveCustumerData")]
+        [Route("cliente-management")]
         public IActionResult Delete(Guid id)
         {
-            _customerAppService.Remove(id);
+            _clienteAppService.Remove(id);
 
             return Response();
         }
 
         [HttpGet]
         [AllowAnonymous]
-        [Route("customer-management/history/{id:guid}")]
+        [Route("cliente-management/history/{id:guid}")]
         public IActionResult History(Guid id)
         {
-            var customerHistoryData = _customerAppService.GetAllHistory(id);
-            return Response(customerHistoryData);
+            var clienteHistoryData = _clienteAppService.GetAllHistory(id);
+            return Response(clienteHistoryData);
         }
     }
 }
