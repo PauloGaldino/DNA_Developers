@@ -1,0 +1,1 @@
+﻿//Esta classe serve de domino da aplicação, onde ficam as classes, metodos e vevntos do sistema

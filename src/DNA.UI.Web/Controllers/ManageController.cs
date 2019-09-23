@@ -508,7 +508,7 @@ namespace DNA.UI.Web.Controllers
         {
             return string.Format(
                 AuthenicatorUriFormat,
-                _urlEncoder.Encode("Equinox Project"),
+                _urlEncoder.Encode("DNA Project"),
                 _urlEncoder.Encode(email),
                 unformattedKey);
         }

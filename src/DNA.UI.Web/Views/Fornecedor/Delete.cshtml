@@ -1,0 +1,72 @@
+@model DNA.Application.ViewModels.Cadastro.Fornecedores.FornecedorViewModel
+
+@{
+    ViewData["Title"] = "Deletar Cliente";
+
+}
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Delete">
+    <vc:summary />
+
+    <h3>Você deseja realmente excluir o @Model.NomeCompanhia?</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NomeCompanhia)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NomeCompanhia)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.NomeContato)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NomeContato)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TituloContato)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TituloContato)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.EnderecoEmail)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.EnderecoEmail)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Endereco)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Endereco)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cidade)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cidade)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Estado)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Estado)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Pais)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NomeCompanhia)
+            </dd>
+        </dl>
+
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Deletar" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-info">Voltar para a lista</a>
+        </div>
+    </div>
+</form>

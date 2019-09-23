@@ -19,6 +19,70 @@ namespace DNA.Infra.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("DNA.Domain.Models.Cadastros.Common.Categorias.Categoria", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Id");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("Varchar(200)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("Varchar(150)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categorias");
+                });
+
+            modelBuilder.Entity("DNA.Domain.Models.Cadastros.Common.Fornecedores.Fornecedor", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Id");
+
+                    b.Property<string>("Cidade")
+                        .IsRequired()
+                        .HasColumnType("Varchar(200)");
+
+                    b.Property<string>("Endereco");
+
+                    b.Property<string>("EnderecoEmail")
+                        .IsRequired()
+                        .HasColumnType("Varchar(200)");
+
+                    b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasColumnType("Varchar(150)");
+
+                    b.Property<string>("NomeCompanhia")
+                        .IsRequired()
+                        .HasColumnType("Varchar(200)");
+
+                    b.Property<string>("NomeContato")
+                        .IsRequired()
+                        .HasColumnType("Varchar(200)");
+
+                    b.Property<string>("Pais")
+                        .IsRequired()
+                        .HasColumnType("Varchar(150)");
+
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasColumnType("Varchar(50)");
+
+                    b.Property<string>("TituloContato")
+                        .IsRequired()
+                        .HasColumnType("Varchar(200)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Fornecedores");
+                });
+
             modelBuilder.Entity("DNA.Domain.Models.Cadastros.Pessoas.Cliente", b =>
                 {
                     b.Property<Guid>("Id")
@@ -40,25 +104,6 @@ namespace DNA.Infra.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Clientes");
-                });
-
-            modelBuilder.Entity("DNA.Domain.Models.Categoria", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("Id");
-
-                    b.Property<string>("Descricao")
-                        .IsRequired()
-                        .HasColumnType("Varchar(200)");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("Varchar(150)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Categorias");
                 });
 #pragma warning restore 612, 618
         }

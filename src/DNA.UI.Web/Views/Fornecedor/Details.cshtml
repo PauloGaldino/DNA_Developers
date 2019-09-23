@@ -1,0 +1,73 @@
+@model DNA.Application.ViewModels.Cadastro.Fornecedores.FornecedorViewModel
+
+@{
+    ViewData["Title"] = "Detalhes do Fornecedor";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeCompanhia)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NomeCompanhia)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeContato)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NomeContato)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TituloContato)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TituloContato)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EnderecoEmail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EnderecoEmail)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Endereco)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cidade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cidade)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pais)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pais)
+        </dd>
+        <dt></dt> 
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a> 
+    <a asp-action="Index" class="btn btn-info">Voltar para a lista</a>
+</div>

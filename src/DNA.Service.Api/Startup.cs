@@ -55,8 +55,8 @@ namespace DNA.Service.Api
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("CanWriteCustumerData", policy => policy.Requirements.Add(new ClaimRequirement("Clientes", "Write")));
-                options.AddPolicy("CanRemoveCustumerData", policy => policy.Requirements.Add(new ClaimRequirement("Clientes", "Remove")));
+                options.AddPolicy("CanWriteCustumerData", policy => policy.Requirements.Add(new ClaimRequirement("Custumers", "Write")));
+                options.AddPolicy("CanRemoveCustumerData", policy => policy.Requirements.Add(new ClaimRequirement("Custumers", "Remove")));
             });
 
             services.AddSwaggerGen(s =>

@@ -1,5 +1,5 @@
-﻿using DNA.Application.Interfaces;
-using DNA.Application.ViewModels;
+﻿using DNA.Application.Interfaces.Cadastro.Categorias;
+using DNA.Application.ViewModels.Cadastro.Categorias;
 using DNA.Domain.Core.Bus;
 using DNA.Domain.Core.Notifications;
 using MediatR;
@@ -41,7 +41,7 @@ namespace DNA.Service.Api.Controllers
         }
 
         [HttpPost]
-        [Authorize(Policy = "CanWriteCategoriaData")]
+        [Authorize(Policy = "CanWriteCustumerData")]
         [Route("categoria-management")]
         public IActionResult Post([FromBody]CategoriaViewModel categoriaViewModel)
         {
@@ -57,7 +57,7 @@ namespace DNA.Service.Api.Controllers
         }
 
         [HttpPut]
-        [Authorize(Policy = "CanWriteCategoriaData")]
+        [Authorize(Policy = "CanWriteCustumerData")]
         [Route("categoria-management")]
         public IActionResult Put([FromBody]CategoriaViewModel categoriaViewModel)
         {
@@ -73,7 +73,7 @@ namespace DNA.Service.Api.Controllers
         }
 
         [HttpDelete]
-        [Authorize(Policy = "CanRemoveCategoriaData")]
+        [Authorize(Policy = "CanRemoveCUstumerData")]
         [Route("categoria-management")]
         public IActionResult Delete(Guid id)
         {

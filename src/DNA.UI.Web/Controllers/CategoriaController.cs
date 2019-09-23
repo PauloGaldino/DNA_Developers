@@ -1,5 +1,5 @@
-﻿using DNA.Application.Interfaces;
-using DNA.Application.ViewModels;
+﻿using DNA.Application.Interfaces.Cadastro.Categorias;
+using DNA.Application.ViewModels.Cadastro.Categorias;
 using DNA.Domain.Core.Notifications;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;

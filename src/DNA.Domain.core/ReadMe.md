@@ -1,0 +1,1 @@
+﻿//Esta classe é o coração da aplicação onde são feitas as valições as classes de noticações.

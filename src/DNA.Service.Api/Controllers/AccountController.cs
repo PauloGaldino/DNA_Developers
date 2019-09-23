@@ -62,13 +62,13 @@ namespace DNA.Service.Api.Controllers
                 return Response(model);
             }
 
-            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser { UserName = model.Email,Nome = model.Nome, Email = model.Email, DataNascimento = model.DataNascimento };
 
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
             {
-                // User claim for write customers data
+                // Reivindicação do usuário para gravar dados de clientes
                 await _userManager.AddClaimAsync(user, new Claim("Clientes", "Write"));
 
                 await _signInManager.SignInAsync(user, false);
