@@ -57,7 +57,7 @@
                         <span class="glyphicon glyphicon-trash"></span>
                     </a>
 
-                    <button type="button" class="btn btn-purple viewbutton" title="History" data-id="@item.Id" data-toggle="modal" data-target="#clienteHistory">
+                    <button type="button" class="btn btn-purple viewbutton" title="History" data-id="@item.Id" data-toggle="modal" data-target="#categoriaHistory">
                         <span class="glyphicon glyphicon-time"></span>
                     </button>
                 </td>
@@ -67,7 +67,7 @@
     </table>
 </div>
 
-<div class="modal fade" id="clienteHistory" role="dialog">
+<div class="modal fade" id="categoriaHistory" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -75,7 +75,7 @@
                 <h4 class="modal-title">Categoria Data History</h4>
             </div>
             <div class="modal-body">
-                <p id="clienteHistoryData"></p>
+                <p id="categoriaHistoryData"></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -88,11 +88,11 @@
     {
     <script type="text/javascript">
         $(".viewbutton").on("click", function () {
-            var clienteId = $(this).data('id');
+            var categoriaId = $(this).data('id');
             $.ajax({
                 url: "https://localhost:44366/categoria-management/categorria-history/" + categoriaId,
                 url: "https://localhost:5001/categoria-management/categoria-history/" + categoriaId,
-                //url: "http://DNA_Developer.azurewebsites.net/cliente-management/clinete-history/" + categoriaId,
+                //url: "http://DNA_Developer.azurewebsites.net/cliente-management/categoria-history/" + categoriaId,
                 cache: false
             }).done(function (data) {
                 var formatHtml = "<table class='table table-striped'>";
@@ -104,13 +104,13 @@
                     formatHtml += "<td>" + change.action + "</td>";
                     formatHtml += "<td>" + change.when + "</td>";
                     formatHtml += "<td>" + change.id + "</td>";
-                    formatHtml += "<td>" + change.Nome + "</td>";
+                    formatHtml += "<td>" + change.nome + "</td>";
                     formatHtml += "<td>" + change.descricao + "</td>";
                     formatHtml += "<td>" + change.who + "</td>";
                     formatHtml += "</tr>";
                 }
                 formatHtml += "</table>";
-                $("#clienteHistoryData").html(formatHtml);
+                $("#categoriaHistoryData").html(formatHtml);
             });
         });
     </script>

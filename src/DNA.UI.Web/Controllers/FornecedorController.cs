@@ -136,7 +136,7 @@ namespace DNA.UI.Web.Controllers
 
             if (!IsValidOperation()) return View(_fornecedorAppService.GetById(id));
 
-            ViewBag.Sucesso = "Cliente Removido!";
+            ViewBag.Sucesso = "Fornecedor Removido!";
             return RedirectToAction("Index");
         }
 
@@ -144,8 +144,8 @@ namespace DNA.UI.Web.Controllers
         [Route("fornecedor-management/fornecedor-history/{id:guid}")]
         public JsonResult History(Guid id)
         {
-            var customerHistoryData = _fornecedorAppService.GetAllHistory(id);
-            return Json(customerHistoryData);
+            var fornecedorHistoryData = _fornecedorAppService.GetAllHistory(id);
+            return Json(fornecedorHistoryData);
         }
     }
 }

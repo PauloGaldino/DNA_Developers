@@ -147,8 +147,8 @@ namespace DNA.UI.Web.Controllers
         [Route("categoria-management/categoria-history/{id:guid}")]
         public JsonResult History(Guid id)
         {
-            var customerHistoryData = _categoriaAppService.GetAllHistory(id);
-            return Json(customerHistoryData);
+            var categoriaHistoryData = _categoriaAppService.GetAllHistory(id);
+            return Json(categoriaHistoryData);
         }
     }
 }

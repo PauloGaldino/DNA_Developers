@@ -29,7 +29,10 @@ namespace DNA.Application.EventSourcedNormalizers.Cadastro.Categorias
                     Nome = string.IsNullOrWhiteSpace(change.Nome) || change.Nome == last.Nome
                         ? ""
                         : change.Nome,
-                 
+                    Descricao = string.IsNullOrWhiteSpace(change.Descricao) || change.Descricao == last.Descricao
+                        ? ""
+                        : change.Descricao,
+
                     Action = string.IsNullOrWhiteSpace(change.Action) ? "" : change.Action,
                     When = change.When,
                     Who = change.Who
@@ -54,7 +57,7 @@ namespace DNA.Application.EventSourcedNormalizers.Cadastro.Categorias
                         values = JsonConvert.DeserializeObject<dynamic>(e.Data);
 
                         slot.Nome = values["Nome"];
-                        slot.Nome = values["Descricao"];
+                        slot.Descricao = values["Descricao"];
                         slot.Action = "Registered";
                         slot.When = values["Timestamp"];
                         slot.Id = values["Id"];
@@ -63,7 +66,7 @@ namespace DNA.Application.EventSourcedNormalizers.Cadastro.Categorias
                     case "CategoriaUpdatedEvent":
                         values = JsonConvert.DeserializeObject<dynamic>(e.Data);
                         slot.Nome = values["Nome"];
-                        slot.Nome = values["Descicao"];
+                        slot.Descricao = values["Descicao"];
                         slot.Action = "Updated";
                         slot.When = values["Timestamp"];
                         slot.Id = values["Id"];
