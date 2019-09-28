@@ -1,5 +1,5 @@
-﻿using DNA.Application.Interfaces.Cadastro.Fornecedores;
-using DNA.Application.ViewModels.Cadastro.Fornecedores;
+﻿using DNA.Application.Interfaces.Cadastro.Common.Fornecedores;
+using DNA.Application.ViewModels.Cadastro.Common.Fornecedores;
 using DNA.Domain.Core.Notifications;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -116,14 +116,14 @@ namespace DNA.UI.Web.Controllers
                 return NotFound();
             }
 
-            var clienteViewModel = _fornecedorAppService.GetById(id.Value);
+            var fornecedorViewModel = _fornecedorAppService.GetById(id.Value);
 
-            if (clienteViewModel == null)
+            if (fornecedorViewModel == null)
             {
                 return NotFound();
             }
 
-            return View(clienteViewModel);
+            return View(fornecedorViewModel);
         }
 
         [HttpPost, ActionName("Delete")]

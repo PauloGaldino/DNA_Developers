@@ -36,4 +36,9 @@
     <PackageReference Update="Microsoft.NETCore.App" Version="2.2.7" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="Views\Fornecedor\" />
+  </ItemGroup>
+
 </Project>

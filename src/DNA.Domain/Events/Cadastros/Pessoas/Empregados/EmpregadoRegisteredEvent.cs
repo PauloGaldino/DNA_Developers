@@ -1,0 +1,23 @@
+﻿using DNA.Domain.Core.Events;
+using System;
+
+namespace DNA.Domain.Events.Cadastros.Pessoas.Empregados
+{
+     public class EmpregadoRegisteredEvent :Event
+    {
+        public EmpregadoRegisteredEvent(Guid id, string nome, string sobrenome, string cargo,DateTime dataAdmissao, DateTime dataNascimento)
+        {
+            Id = id;
+            Nome = nome;
+            Sobrenome = sobrenome;
+            DataAdmissao = dataAdmissao;
+        }
+
+        public Guid Id { get; set; }
+        public string  Nome { get; set; }
+        public string Sobrenome { get; set; }
+        public string Cargo { get; private set; }
+        public DateTime DataAdmissao { get; private set; }
+        public DateTime DataNascimento { get; set; }    
+    }
+}

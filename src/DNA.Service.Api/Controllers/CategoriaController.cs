@@ -1,5 +1,5 @@
-﻿using DNA.Application.Interfaces.Cadastro.Categorias;
-using DNA.Application.ViewModels.Cadastro.Categorias;
+﻿using DNA.Application.Interfaces.Cadastro.Common.Categorias;
+using DNA.Application.ViewModels.Cadastro.Common.Categorias;
 using DNA.Domain.Core.Bus;
 using DNA.Domain.Core.Notifications;
 using MediatR;

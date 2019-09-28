@@ -1,0 +1,32 @@
+@model DNA.Application.ViewModels.Cadastro.Common.Expedidores.ExpedidorViewModel
+
+@{
+    ViewData["Title"] = "Detalhes do Fornecedor";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanhiaNome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CompanhiaNome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+        <
+        <dt></dt> 
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a> 
+    <a asp-action="Index" class="btn btn-info">Voltar para a lista</a>
+</div>
