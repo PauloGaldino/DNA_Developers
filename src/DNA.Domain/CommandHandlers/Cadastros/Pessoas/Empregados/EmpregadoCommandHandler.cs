@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using DNA.Domain.Commands.Cadastros.Pessoas.Empregados;
 using DNA.Domain.Core.Bus;
@@ -21,7 +22,7 @@ namespace DNA.Domain.CommandHandlers.Cadastros.Pessoas.Empregados
         public EmpregadoCommandHandler(IEmpregadoRepository empregadoRepository, 
                                         IUnitOfWork uow, 
                                         IMediatorHandler bus,
-            INotificationHandler<DomainNotification> notifications): base(uow,bus,notifications)
+                                        INotificationHandler<DomainNotification> notifications): base(uow,bus,notifications)
         {
             _empregadoRepository = empregadoRepository;
             Bus = bus;
@@ -35,18 +36,21 @@ namespace DNA.Domain.CommandHandlers.Cadastros.Pessoas.Empregados
                 return Task.FromResult(false);
             }
 
-            var empregado = new Empregado(message.Id, message.Nome, message.Sobrenome, message.Cargo, message.DataAdmissao, message.DataNascimento);
+           
+            var empregado = new Empregado(Guid.NewGuid(), message.Nome, message.Sobrenome, message.Cargo, message.DataAdmissao, message.DataNascimento);
             
             if(_empregadoRepository.GetByNome(empregado.Nome) != null)
             {
                 Bus.RaiseEvent(new DomainNotification(message.MessageType, "O nome do Empregado já foi recebido"));
+                return Task.FromResult(false);
             }
+
 
             _empregadoRepository.Add(empregado);
 
             if(Commit())
             {
-                Bus.RaiseEvent(new EmpregadoRegisteredEvent(message.Id, message.Nome, message.Sobrenome, message.Cargo, message.DataAdmissao, message.DataNascimento));
+                Bus.RaiseEvent(new EmpregadoRegisteredEvent(empregado.Id, empregado.Nome, empregado.Sobrenome, empregado.Cargo, empregado.DataAdmissao, empregado.DataNascimento));
             }
 
 
@@ -55,7 +59,8 @@ namespace DNA.Domain.CommandHandlers.Cadastros.Pessoas.Empregados
 
         public Task<bool> Handle(UpdateEmpregadoCommand message ,CancellationToken cancellationToken)
         {
-           if(!message.IsValid())
+
+            if (!message.IsValid())
             {
                 NotifyValidationErrors(message);
                 return Task.FromResult(false);
@@ -64,7 +69,7 @@ namespace DNA.Domain.CommandHandlers.Cadastros.Pessoas.Empregados
             var empregado = new Empregado(message.Id, message.Nome, message.Sobrenome, message.Cargo, message.DataAdmissao, message.DataNascimento);
             var empregadoExiste = _empregadoRepository.GetByNome(empregado.Nome);
 
-            if(empregadoExiste !=null && empregadoExiste.Id == empregado.Id)
+            if(empregadoExiste != null && empregadoExiste.Id != empregado.Id)
             {
                 if (!empregadoExiste.Equals(empregado))
                 {
@@ -77,14 +82,33 @@ namespace DNA.Domain.CommandHandlers.Cadastros.Pessoas.Empregados
 
             if(Commit())
             {
-                Bus.RaiseEvent(new EmpregadoRegisteredEvent(message.Id, message.Nome, message.Sobrenome, message.Cargo, message.DataAdmissao, message.DataNascimento));
+                Bus.RaiseEvent(new EmpregadoUpdatedEvent(empregado.Id, empregado.Nome, empregado.Sobrenome, empregado.Cargo, empregado.DataAdmissao, empregado.DataNascimento));
             }
             return Task.FromResult(true);
         }
 
         public Task<bool> Handle(RemoveEmpregadoCommand message, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+          
+            if (!message.IsValid())
+            {
+                NotifyValidationErrors(message);
+                return Task.FromResult(false);
+            }
+            _empregadoRepository.Remove(message.Id);
+
+            if (Commit())
+            {
+                Bus.RaiseEvent(new EmpregadoRemovedEvent(message.Id));
+            }
+
+            return Task.FromResult(true);
+
+        }
+     
+        public void Dispose()
+        {
+            _empregadoRepository.Dispose();
         }
     }
 }

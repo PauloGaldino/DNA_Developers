@@ -10,19 +10,19 @@ namespace DNA.Domain.EventHandlers.Cadastros.Pessoas.Empregados
         INotificationHandler<EmpregadoRemovedEvent>,
         INotificationHandler<EmpregadoUpdatedEvent>
     {
-        public Task Handle(EmpregadoRegisteredEvent notification, CancellationToken cancellationToken)
+        public Task Handle(EmpregadoRegisteredEvent message, CancellationToken cancellationToken)
         {
             // Enviar algum email de notificação
             return Task.CompletedTask;
         }
 
-        public Task Handle(EmpregadoRemovedEvent notification, CancellationToken cancellationToken)
+        public Task Handle(EmpregadoRemovedEvent message, CancellationToken cancellationToken)
         {
             // Enviar algum email de saudação
             return Task.CompletedTask;
         }
 
-        public Task Handle(EmpregadoUpdatedEvent notification, CancellationToken cancellationToken)
+        public Task Handle(EmpregadoUpdatedEvent message, CancellationToken cancellationToken)
         {
             // Enviar algum email em breve
             return Task.CompletedTask;

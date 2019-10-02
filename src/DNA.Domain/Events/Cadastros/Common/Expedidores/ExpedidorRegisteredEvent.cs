@@ -10,6 +10,7 @@ namespace DNA.Domain.Events.Cadastros.Common.Expedidores
             Id = id;
             CompanhiaNome = companhiaNome;
             Telefone = telefone;
+            AggregateId = id;
         }
 
         public Guid Id { get; set; }

@@ -13,7 +13,7 @@ namespace DNA.Domain.Commands.Cadastros.Pessoas.Empregados
             Cargo = cargo;
             DataAdmissao = dataAdmissao;
             DataNascimento = dataNascimento;
-            AggregateId = id;
+           
         }
 
         public override bool IsValid()

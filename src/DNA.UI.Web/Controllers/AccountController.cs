@@ -222,7 +222,7 @@ namespace DNA.UI.Web.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,DataNascimento = model.DataNascimento, Nome = model.Nome };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
 

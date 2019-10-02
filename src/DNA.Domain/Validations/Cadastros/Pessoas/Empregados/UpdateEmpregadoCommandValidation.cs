@@ -2,15 +2,15 @@
 
 namespace DNA.Domain.Validations.Cadastros.Pessoas.Empregados
 {
-    public class UpdateEmpregadoCommandValidation : EmpregadoValidation<EmpregadoCommand>
+    public class UpdateEmpregadoCommandValidation : EmpregadoValidation<UpdateEmpregadoCommand>
     {
         public UpdateEmpregadoCommandValidation()
         {
             ValidateNome();
             ValidateSobrenome();
             ValidateCargo();
+            ValidateDataNascimento();
             ValidateDataAdmissao();
-            ValidateDataAncimento();
             ValidateId();
         }
     }

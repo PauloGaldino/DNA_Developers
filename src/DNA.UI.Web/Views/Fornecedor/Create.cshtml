@@ -1,0 +1,88 @@
+@model DNA.Application.ViewModels.Cadastro.Common.Fornecedores.FornecedorViewModel
+
+@{
+    ViewData["Title"] = "Registrar um novo Fornecedor";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <hr />
+
+        @* Replacing classic Validation Summary to Custom ViewComponent as TagHelper *@
+        <vc:summary />
+
+        <div class="form-group">
+            <label asp-for="NomeCompanhia" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="NomeCompanhia" class="form-control" />
+                <span asp-validation-for="NomeCompanhia" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="NomeContato" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="NomeContato" class="form-control" />
+                <span asp-validation-for="NomeContato" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="TituloContato" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="TituloContato" class="form-control" />
+                <span asp-validation-for="TituloContato" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Telefone" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Telefone" class="form-control" />
+                <span asp-validation-for="Telefone" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="EnderecoEmail" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="EnderecoEmail" class="form-control" />
+                <span asp-validation-for="EnderecoEmail" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Cidade" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Cidade" class="form-control" />
+                <span asp-validation-for="Cidade" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Estado" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Estado" class="form-control" />
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Pais" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Pais" class="form-control" />
+                <span asp-validation-for="Pais" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Criar" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-info">Voltar para a lista</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

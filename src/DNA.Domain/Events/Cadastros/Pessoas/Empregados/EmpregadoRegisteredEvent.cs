@@ -11,11 +11,13 @@ namespace DNA.Domain.Events.Cadastros.Pessoas.Empregados
             Nome = nome;
             Sobrenome = sobrenome;
             DataAdmissao = dataAdmissao;
+            DataNascimento = dataNascimento;
+            AggregateId = id;
         }
 
         public Guid Id { get; set; }
-        public string  Nome { get; set; }
-        public string Sobrenome { get; set; }
+        public string  Nome { get; private set; }
+        public string Sobrenome { get; private set; }
         public string Cargo { get; private set; }
         public DateTime DataAdmissao { get; private set; }
         public DateTime DataNascimento { get; set; }    

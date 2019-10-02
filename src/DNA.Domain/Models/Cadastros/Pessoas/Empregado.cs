@@ -4,7 +4,7 @@ using System;
 
 namespace DNA.Domain.Models.Cadastros.Pessoas
 {
-    public class Empregado : Pessoa
+    public class Empregado : Entity
     {
         public Empregado(Guid id, string nome, string sobrenome, string cargo, DateTime dataAdmissao, DateTime dataNascimento)
         {
@@ -17,10 +17,10 @@ namespace DNA.Domain.Models.Cadastros.Pessoas
         }
         protected Empregado() { }
 
-     
+        public string Nome { get; private set; }
+        public string Sobrenome { get; private set; }
         public string Cargo { get; private set; }
         public DateTime DataAdmissao { get; private set; }
-    
-
+        public DateTime DataNascimento { get; private set; }
     }
 }

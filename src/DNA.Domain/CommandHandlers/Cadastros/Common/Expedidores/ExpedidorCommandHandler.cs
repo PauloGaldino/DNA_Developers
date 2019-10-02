@@ -19,8 +19,11 @@ namespace DNA.Domain.CommandHandlers.Cadastros.Comman.Expedidores
     {
         private readonly IExpedidorRepository _expedidorRepository;
         private readonly IMediatorHandler Bus;
-        public ExpedidorCommandHandler(IExpedidorRepository expedidorRepository, IUnitOfWork uow, IMediatorHandler bus, INotificationHandler<DomainNotification> notification)
-        : base(uow, bus, notification)
+
+        public ExpedidorCommandHandler(IExpedidorRepository expedidorRepository, 
+                                        IUnitOfWork uow, 
+                                        IMediatorHandler bus, 
+                                        INotificationHandler<DomainNotification> notification) : base(uow, bus, notification)
         {
             _expedidorRepository = expedidorRepository;
             Bus = bus;
@@ -34,6 +37,7 @@ namespace DNA.Domain.CommandHandlers.Cadastros.Comman.Expedidores
                 NotifyValidationErrors(message);
                 return Task.FromResult(false);
             }
+
             var expedidor = new Expedidor(Guid.NewGuid(), message.CompanhiaNome, message.Telefone);
 
             if (_expedidorRepository.GetByNomeCompanhia(expedidor.CompanhiaNome) != null)

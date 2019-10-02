@@ -11,6 +11,7 @@ namespace DNA.Domain.Events.Cadastros.Pessoas.Empregados
             Nome = nome;
             Sobrenome = sobrenome;
             DataAdmissao = dataAdmissao;
+            AggregateId = id;
         }
 
         public Guid Id { get; set; }

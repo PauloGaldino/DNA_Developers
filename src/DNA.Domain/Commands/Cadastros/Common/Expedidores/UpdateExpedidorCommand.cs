@@ -11,7 +11,7 @@ namespace DNA.Domain.Commands.Cadastros.Common.Expedidores
             Id = id;
             CompanhiaNome = companhiaNome;
             Telefone = telefone;
-            AggregateId = id;
+            
         }
 
         public override bool IsValid()

@@ -7,6 +7,7 @@ using DNA.Application.ViewModels.Cadastro.Common.Fornecedores;
 using DNA.Application.ViewModels.Cadastro.Common.Categorias;
 using DNA.Domain.Models.Cadastros.Common.Expedidores;
 using DNA.Application.ViewModels.Cadastro.Common.Expedidores;
+using DNA.Application.ViewModels.Cadastro.Pessoas.Empregados;
 
 namespace DNA.Application.AutoMapper
 {
@@ -18,7 +19,7 @@ namespace DNA.Application.AutoMapper
             CreateMap<Categoria, CategoriaViewModel>();
             CreateMap<Fornecedor, FornecedorViewModel>();
             CreateMap<Expedidor, ExpedidorViewModel>();
-            CreateMap<Empregado, ExpedidorViewModel>();
+            CreateMap<Empregado, EmpregadoViewModel>();
         }
     }
 }

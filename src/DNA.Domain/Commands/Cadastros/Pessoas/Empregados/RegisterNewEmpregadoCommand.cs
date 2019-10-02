@@ -7,18 +7,17 @@ namespace DNA.Domain.Commands.Cadastros.Pessoas.Empregados
     {
         public RegisterNewEmpregadoCommand(string nome, string sobrenome,string cargo, DateTime dataAdmissao, DateTime dataNascimento)
         {
-            
             Nome = nome;
             Sobrenome = sobrenome;
             Cargo = cargo;
             DataAdmissao = dataAdmissao;
-            DataNascimento = dataNascimento;
+            DataNascimento = dataNascimento; 
            
         }
 
         public override bool IsValid()
         {
-            ValidationResult = new RegisterNewEmpregadorCommandValidation().Validate(this);
+            ValidationResult = new RegisterNewEmpregadoCommandValidation().Validate(this);
             return ValidationResult.IsValid;
         }
     }

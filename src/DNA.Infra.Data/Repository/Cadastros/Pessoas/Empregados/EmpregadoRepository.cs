@@ -14,7 +14,7 @@ namespace DNA.Infra.Data.Repository.Cadastros.Pessoas.Empregados
 
         }
 
-        Empregado IEmpregadoRepository.GetByNome(string nome)
+        public Empregado GetByNome(string nome)
         {
             return DbSet.AsNoTracking().FirstOrDefault(c => c.Nome == nome);
         }

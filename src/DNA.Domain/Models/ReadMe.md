@@ -1,0 +1,1 @@
+﻿//Aui fiacas as entidade do modelo do domino.

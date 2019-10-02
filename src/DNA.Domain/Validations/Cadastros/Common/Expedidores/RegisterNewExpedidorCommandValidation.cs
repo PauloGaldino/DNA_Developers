@@ -6,7 +6,6 @@ namespace DNA.Domain.Validations.Cadastros.Common.Expedidores
     {
         public RegisterNewExpedidorCommandValidation()
         {
-            ValidateId();
             ValidateCompanhiaNome();
             ValidateTelefone();
         }

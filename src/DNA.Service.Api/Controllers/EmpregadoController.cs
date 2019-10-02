@@ -9,13 +9,13 @@ using System;
 
 namespace DNA.Service.Api.Controllers
 {
+    [Authorize]
     public class EmpregadoController : ApiController
-  
     {
 
         private readonly IEmpregadoAppService _empregadoAppService;
 
-        public EmpregadoControllerController(
+        public EmpregadoController(
             IEmpregadoAppService empregadoAppService,
             INotificationHandler<DomainNotification> notifications,
             IMediatorHandler mediator) : base(notifications, mediator)
@@ -93,3 +93,4 @@ namespace DNA.Service.Api.Controllers
         }
     }
 }
+

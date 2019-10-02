@@ -1,5 +1,4 @@
-﻿using DNA.Domain.Commands.Cadastros.Common.Expedidores;
-using DNA.Domain.Validations.Cadastros.Common.Expedidores;
+﻿using DNA.Domain.Validations.Cadastros.Common.Expedidores;
 using System;
 
 namespace DNA.Domain.Commands.Cadastros.Common.Expedidores

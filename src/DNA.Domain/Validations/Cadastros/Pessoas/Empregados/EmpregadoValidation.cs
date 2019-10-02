@@ -24,8 +24,7 @@ namespace DNA.Domain.Validations.Cadastros.Pessoas.Empregados
                 .NotEmpty().WithMessage("Verifique se você digitou o Cargo.")
                 .Length(2, 150).WithMessage("O nome deve ter entre 2 e 0 caracteres.");
         }
-
-        protected void ValidateDataAncimento()
+        protected void ValidateDataNascimento()
         {
             RuleFor(c => c.DataNascimento)
                 .NotEmpty()
@@ -38,14 +37,11 @@ namespace DNA.Domain.Validations.Cadastros.Pessoas.Empregados
                 .NotEmpty();
                
         }
-
-
         protected void ValidateId()
         {
             RuleFor(c => c.Id)
                 .NotEqual(Guid.Empty);
         }
-
         protected static bool HaveMinimumAge(DateTime dataNascimento)
         {
             return dataNascimento <= DateTime.Now.AddYears(-16);

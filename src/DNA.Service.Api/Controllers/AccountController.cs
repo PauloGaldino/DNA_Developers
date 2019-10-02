@@ -62,7 +62,7 @@ namespace DNA.Service.Api.Controllers
                 return Response(model);
             }
 
-            var user = new ApplicationUser { UserName = model.Email,Nome = model.Nome, Email = model.Email, DataNascimento = model.DataNascimento };
+            var user = new ApplicationUser { UserName = model.Email, , Email = model.Email, DataNascimento = model.DataNascimento, Nome = model.Nome};
 
             var result = await _userManager.CreateAsync(user, model.Password);
 

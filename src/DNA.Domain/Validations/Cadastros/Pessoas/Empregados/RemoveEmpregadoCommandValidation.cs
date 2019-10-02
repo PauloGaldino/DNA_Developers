@@ -2,7 +2,7 @@
 
 namespace DNA.Domain.Validations.Cadastros.Pessoas.Empregados
 {
-    public class RemoveEmpregadoCommandValidation : EmpregadoValidation<EmpregadoCommand>
+    public class RemoveEmpregadoCommandValidation : EmpregadoValidation<RemoveEmpregadoCommand>
     {
         public RemoveEmpregadoCommandValidation()
         {

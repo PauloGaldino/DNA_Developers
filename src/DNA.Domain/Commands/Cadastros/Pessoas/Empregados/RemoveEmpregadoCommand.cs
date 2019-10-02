@@ -1,5 +1,4 @@
-﻿using DNA.Domain.Core.Commands;
-using DNA.Domain.Validations.Cadastros.Pessoas.Empregados;
+﻿using DNA.Domain.Validations.Cadastros.Pessoas.Empregados;
 using System;
 
 namespace DNA.Domain.Commands.Cadastros.Pessoas.Empregados

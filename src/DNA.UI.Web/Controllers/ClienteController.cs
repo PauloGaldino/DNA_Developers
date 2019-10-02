@@ -21,7 +21,7 @@ namespace DNA.UI.Web.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        [Route("customer-management/list-all")]
+        [Route("clente-management/list-all")]
         public IActionResult Index()
         {
             return View(_clienteAppService.GetAll());
@@ -61,7 +61,8 @@ namespace DNA.UI.Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(ClienteViewModel clienteViewModel)
         {
-            if (!ModelState.IsValid) return View(clienteViewModel);
+            if (!ModelState.IsValid)
+                return View(clienteViewModel);
             _clienteAppService.Register(clienteViewModel);
 
             if (IsValidOperation())
